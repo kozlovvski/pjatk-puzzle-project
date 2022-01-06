@@ -1,10 +1,15 @@
-import {Selection} from "d3"
-import { SimulationNodeDatum } from "d3-force";
+import { Selection } from 'd3';
+import { SimulationNodeDatum } from 'd3-force';
 
 export type InitialNode = {
-  index: number
-}
+  index: number;
+};
 
-export type ModifiedNode = SimulationNodeDatum & InitialNode
+export type ModifiedNode = SimulationNodeDatum & InitialNode;
 
-export type NodeCircles =  Selection<SVGLineElement, ModifiedNode, SVGElement, unknown>
+export type NodeCircles = Selection<
+  SVGLineElement,
+  ModifiedNode,
+  SVGElement,
+  unknown
+>;

@@ -1,5 +1,5 @@
-import { generateNewLinksButton } from "../constants/elements";
+import { generateNewLinksButton } from '../constants/elements';
 
-generateNewLinksButton.addEventListener("click", (e) => {
-  window.location.reload()
-})
+generateNewLinksButton.addEventListener('click', () => {
+  window.location.reload();
+});
