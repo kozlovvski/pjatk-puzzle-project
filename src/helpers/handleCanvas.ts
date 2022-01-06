@@ -4,7 +4,7 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../constants/canvas';
 import { MERGED_INITIAL_SETTINGS_VALUES } from '../constants/mergedInitialSettingsValues';
 import { InitialLink, LinkLines, ModifiedLink } from '../typings/Links';
 import { InitialNode, ModifiedNode, NodeCircles } from '../typings/Nodes';
-import { CircleDragEventHandler, DragEvent } from '../typings/Events';
+import { CircleDragEventHandler } from '../typings/Events';
 
 const svg = d3.select('.canvas__element');
 
@@ -130,9 +130,7 @@ const nodeCircles = (
     associatedLink?.removeAttribute('marker-end');
   })
   .attr('r', 5)
-  .attr('fill', function (d) {
-    return 'red';
-  })
+  .attr('fill', 'red')
   .call(
     d3
       .drag<SVGCircleElement, ModifiedNode>()
