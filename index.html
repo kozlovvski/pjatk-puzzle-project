@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+      <section class="columns">
+        <div class="column canvas__wrapper">
+          <svg class="canvas__element" viewBox="0 0 960 600"></svg>
+          <button class="button is-primary modal-trigger" data-target="settings__modal">
+            Open settings
+          </button>
+        </div>
+      </section>
+
+      <!-- settings modal -->
+      <div id="settings__modal" class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <form id="settings__form">
+              <div class="field">
+                <label class="label">Number of nodes</label>
+                <div class="control">
+                  <input class="input" type="number" placeholder="Number of nodes" name="nodesNumber">
+                </div>
+              </div>
+
+                <div class="control">
+                  <button class="button is-primary modal-close-button">Submit</button>
+                </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

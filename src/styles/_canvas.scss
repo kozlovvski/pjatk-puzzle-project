@@ -1,0 +1,31 @@
+.canvas {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__element {
+    max-height: 90vh;
+    margin-bottom: 30px;
+
+    .links {
+      line {
+        stroke: #999;
+        stroke-opacity: 0.6;
+        stroke-width: 2;
+      }
+    }
+    
+    .nodes {
+      circle {
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
+    }
+  }
+
+
+
+}

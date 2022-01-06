@@ -1,0 +1,12 @@
+.column {
+  &--left {
+    max-width: 300px
+  }
+
+  &__bar {
+    max-width: 15px;
+    padding: 0;
+    cursor: col-resize;
+    background-color: #333;
+  }
+}
