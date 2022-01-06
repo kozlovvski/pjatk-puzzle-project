@@ -4,14 +4,14 @@ import sample from "lodash/sample";
 import "./helpers/handleModals"
 import "./helpers/handleSettingsFormSubmit"
 import "./helpers/applySettingsFormInitialValues"
+import "./helpers/handleGenerateNewLinksButton"
 
 import "./styles/index.scss";
 import { MERGED_INITIAL_SETTINGS_VALUES } from "./constants/mergedInitialSettingsValues";
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./constants/canvas";
 
 
-var svg = d3.select(".canvas__element");
-var width = 960;
-var height = 600;
+const svg = d3.select(".canvas__element");
 
 //intialize data
 const nodes: d3.SimulationNodeDatum[] = new Array(+MERGED_INITIAL_SETTINGS_VALUES.nodesNumber)
@@ -24,7 +24,7 @@ const links = nodes.map(({ index }) => ({
   target: sample(nodes.filter((n) => n.index !== index))?.index,
 }));
 
-var simulation = d3
+export const simulation = d3
   .forceSimulation(nodes)
   .velocityDecay(0.3)
   .force(
@@ -38,7 +38,7 @@ var simulation = d3
   )
   .force("charge", d3.forceManyBody().strength(-150))
   // .force("collide", d3.forceCollide())
-  .force("center", d3.forceCenter(width / 2, height / 2).strength(1))
+  .force("center", d3.forceCenter(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).strength(1))
   .force("x", d3.forceX())
   .force("y", d3.forceY());
 // .force("tick", ticked)
@@ -56,7 +56,7 @@ const marker = svg
   .append("path")
   .attr("d", "M 0,0 m -5,-5 L 5,0 L -5,5 Z");
 
-var link = svg
+const link = svg
   .append("g")
   .attr("class", "links")
   .selectAll("line")
@@ -78,7 +78,7 @@ const getAssociatedLink = (sourceIndex: number) => {
   return svg.select<SVGLineElement>(`line[data-from="${sourceIndex}"]`).node()
 }
 
-var node = svg
+const node = svg
   .append("g")
   .attr("class", "nodes")
   .selectAll("circle")
@@ -149,7 +149,6 @@ function ticked() {
 simulation.on("tick", ticked);
 
 function dragstarted(event, elem) {
-  console.log(arguments);
   if (!event.active) simulation.alphaTarget(0.3).restart();
   elem.fx = elem.x;
   elem.fy = elem.y;

@@ -9,15 +9,20 @@
   <body>
       <section class="columns">
         <div class="column canvas__wrapper">
-          <svg class="canvas__element" viewBox="0 0 960 600"></svg>
-          <button class="button is-primary modal-trigger" data-target="settings__modal">
-            Open settings
-          </button>
+          <svg class="canvas__element" viewBox="0 0 1400 1080"></svg>
+          <div>
+            <button class="button is-primary generate__button">
+              Generate new links
+            </button>
+            <button class="button is-light modal-trigger" data-target="settings__modal">
+              Open settings
+            </button>
+          </div>
         </div>
       </section>
 
       <!-- settings modal -->
-      <div id="settings__modal" class="modal is-active">
+      <div id="settings__modal" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
           <div class="box">
@@ -32,7 +37,6 @@
                 <div class="control">
                   <button class="button is-primary modal-close-button">Submit</button>
                 </div>
-
             </form>
           </div>
         </div>
