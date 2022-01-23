@@ -29,17 +29,17 @@ const simulation = d3
     d3
       .forceLink<InitialNode, InitialLink>(links)
       .id((d) => d.index)
-      .strength(1)
+      .strength(1.5)
       .distance(30)
       .iterations(2)
   )
-  .force('charge', d3.forceManyBody().strength(-150))
+  .force('charge', d3.forceManyBody().strength(-100))
   .force(
     'center',
     d3.forceCenter(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2).strength(1)
   )
-  .force('x', d3.forceX())
-  .force('y', d3.forceY())
+  .force('x', d3.forceX().strength(0.05))
+  .force('y', d3.forceY().strength(0.05))
   .force('tick', ticked);
 
 svg
@@ -83,7 +83,7 @@ const getAssociatedLink = (sourceIndex: number) => {
 };
 
 const dragstarted: CircleDragEventHandler = (event, elem) => {
-  if (!event.active) simulation.alphaTarget(0.3).restart();
+  if (!event.active) simulation.alphaTarget(0.1).restart();
   elem.fx = elem.x;
   elem.fy = elem.y;
 };
